@@ -1,0 +1,61 @@
+@mixin flex-direction-column {
+  display: flex;
+  flex-direction: column;
+}
+
+#app {
+  padding: 50px;
+  padding-bottom: 500px;
+}
+
+.window,
+.popover {
+
+  font-size: 18px;
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 15px;
+}
+
+.window {
+  $window-height: 150px;
+  box-shadow: 21px 20px 30px 5px rgba(0, 0, 0, 0.68);
+
+  .text-wrapper {
+    @include flex-direction-column;
+
+    .name,
+    .position,
+    .status {
+      margin-top: 15px;
+    }
+  }
+
+  .img {
+    margin: 0.1 * $window-height;
+    max-height: 0.8 * $window-height;
+    max-width: 0.8 * $window-height;
+    border: 2px solid black;
+  }
+
+  max-width:$window-height * 2.5;
+  min-height: $window-height;
+
+}
+
+.popover {
+  // box-shadow: inset 21px 20px 30px 5px rgba(0, 0, 0, 0.68);
+  background-color: white;
+  max-width: 500px;
+  min-height: 50px;
+  @include flex-direction-column;
+  padding: 0 15px 15px;
+
+  span {
+    margin-top: 15px;
+  }
+
+  .active {
+    color: green;
+  }
+}
